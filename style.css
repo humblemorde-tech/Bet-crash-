@@ -1,0 +1,437 @@
+/* ==========================================================================
+   BET-CRASH COMPREHENSIVE PRODUCTION STYLE SYSTEM (MEGA ARCHITECTURE v6.0)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CORE DESIGN SYSTEM & DESIGN VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+    --bg-black: #0b0f17;
+    --panel-black: #121824;
+    --panel-border-black: rgba(51, 65, 85, 0.35);
+    --text-primary-black: #f8fafc;
+    --text-secondary-black: #94a3b8;
+    
+    --bg-white: #f1f5f9;
+    --panel-white: #ffffff;
+    --panel-border-white: #e2e8f0;
+    --text-primary-white: #0f172a;
+    --text-secondary-white: #64748b;
+
+    /* High-Fidelity Branding Accents */
+    --brand-emerald: #10b981;
+    --brand-emerald-glow: rgba(16, 185, 129, 0.25);
+    --brand-teal: #14b8a6;
+    --brand-sky: #38bdf8;
+    --brand-sky-glow: rgba(56, 189, 248, 0.25);
+    --brand-rose: #f43f5e;
+    --brand-rose-glow: rgba(244, 63, 94, 0.25);
+    --brand-amber: #f59e0b;
+    --brand-purple: #a855f7;
+    --brand-gold: #fbbf24;
+    
+    /* Animation Timings */
+    --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Global Reset & Performance Layer */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-primary-black);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   2. MOBILE VIEWPORT CONSTRAINTS & LAYOUT WRAPPERS
+   -------------------------------------------------------------------------- */
+.viewport-mobile-optimized {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.75);
+    background-color: var(--bg-black);
+}
+
+.app-touch-scroller {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-grow: 1;
+    padding-bottom: 110px; /* Ensures footer menu doesn't block content */
+}
+
+.app-touch-scroller::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   3. THEME TUNING INTERFACES (LIGHT VS DARK)
+   -------------------------------------------------------------------------- */
+.theme-black {
+    background-color: var(--bg-black);
+    color: var(--text-primary-black);
+}
+
+.theme-white {
+    background-color: var(--bg-white);
+    color: var(--text-primary-white);
+}
+.theme-white .header-bg {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--panel-border-white);
+}
+.theme-white .footer-nav-bar {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid var(--panel-border-white);
+}
+.theme-white .game-card {
+    background: var(--panel-white) !important;
+    border: 1px solid var(--panel-border-white) !important;
+}
+.theme-white .game-card div, 
+.theme-white .game-card span,
+.theme-white .game-card h3 {
+    color: var(--text-primary-white) !important;
+}
+.theme-white .panel-container {
+    background: var(--panel-white);
+    border: 1px solid var(--panel-border-white);
+}
+
+/* --------------------------------------------------------------------------
+   4. LUXURY GAME CARDS GRID & INTERACTIVE LAYOUTS
+   -------------------------------------------------------------------------- */
+.game-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+}
+
+.game-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 16px;
+    min-height: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #161f30 0%, #0f1522 100%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 4px solid #334155;
+    transition: transform 0.3s var(--ease-elastic), box-shadow 0.3s ease, filter 0.2s;
+    will-change: transform, box-shadow;
+    cursor: pointer;
+}
+
+/* Kinetic App Micro-interactions */
+.game-card:active {
+    transform: scale(0.93) translateY(2px);
+    filter: brightness(0.85);
+}
+
+/* Featured / Hero Crash Game Variant (Full Width Display) */
+.game-card-hero {
+    grid-column: span 2;
+    min-height: 175px;
+}
+
+/* Brand Specific Visual Presets */
+.card-theme-aviator {
+    background: linear-gradient(135deg, #2a1418 0%, #0f1522 100%) !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+    border-bottom: 4px solid var(--brand-rose) !important;
+}
+.card-theme-aviator:hover { box-shadow: 0 8px 24px var(--brand-rose-glow); }
+
+.card-theme-jetx {
+    background: linear-gradient(135deg, #0f2238 0%, #0f1522 100%) !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+    border-bottom: 4px solid var(--brand-sky) !important;
+}
+.card-theme-jetx:hover { box-shadow: 0 8px 24px var(--brand-sky-glow); }
+
+.card-theme-rocketman {
+    background: linear-gradient(135deg, #291e12 0%, #0f1522 100%) !important;
+    border-bottom: 4px solid var(--brand-amber) !important;
+}
+
+.card-theme-roulette {
+    background: linear-gradient(135deg, #261214 0%, #0f1522 100%) !important;
+    border-bottom: 4px solid #dc2626 !important;
+}
+
+.card-theme-blackjack {
+    background: linear-gradient(135deg, #101c36 0%, #0f1522 100%) !important;
+    border-bottom: 4px solid #2563eb !important;
+}
+
+/* Badges Embedded in Cards */
+.card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+.badge-hot { background-color: var(--brand-rose); color: white; }
+.badge-live { background-color: var(--brand-emerald); color: white; }
+
+/* --------------------------------------------------------------------------
+   5. FEATURE: LIVE CRASH MULTIPLIER REAL-TIME CHART GRAPH STYLING
+   -------------------------------------------------------------------------- */
+.crash-chart-container {
+    position: relative;
+    width: calc(100% - 32px);
+    margin: 16px auto;
+    height: 220px;
+    background-color: #080c12;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+}
+
+.crash-canvas-fallback {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    border-left: 2px dashed rgba(255, 255, 255, 0.1);
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.live-multiplier-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    font-weight: 900;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    color: var(--brand-emerald);
+    text-shadow: 0 0 25px var(--brand-emerald-glow);
+}
+
+/* --------------------------------------------------------------------------
+   6. FEATURE: SPORTS LIVE TICKER & HISTORY MATRICES
+   -------------------------------------------------------------------------- */
+.recent-multipliers-bar {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.recent-multipliers-bar::-webkit-scrollbar { display: none; }
+
+.multiplier-pill {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.mult-high { color: var(--brand-purple); background: rgba(168, 85, 247, 0.15); }
+.mult-med { color: var(--brand-sky); background: rgba(56, 189, 248, 0.15); }
+.mult-low { color: var(--brand-rose); background: rgba(244, 63, 94, 0.15); }
+
+/* --------------------------------------------------------------------------
+   7. FLOATING DROPDOWN NAVIGATION ENGINE (HAMBURGER MODAL)
+   -------------------------------------------------------------------------- */
+#top-dropdown-menu {
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    width: 280px;
+    background-color: #171f2e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    transform-origin: top right;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    color: var(--text-secondary-black);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: background 0.2s, color 0.2s, padding-left 0.2s var(--ease-out-quint);
+}
+.menu-item:last-child { border-bottom: none; }
+
+.menu-item:active {
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary-black);
+    padding-left: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   8. COMPACT DEPOSIT / CASHOUT CONTROL PANELS (M-PESA SPECIFIC UI)
+   -------------------------------------------------------------------------- */
+.panel-container {
+    background-color: var(--panel-black);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 24px;
+    padding: 20px;
+    margin: 16px;
+}
+
+.input-label-group {
+    margin-bottom: 16px;
+}
+.input-label-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary-black);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+}
+
+.premium-input-box {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #080c12;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.premium-input-box:focus {
+    border-color: var(--brand-emerald);
+    box-shadow: 0 0 0 3px var(--brand-emerald-glow);
+}
+
+/* Quick Bet Amount Grid Layout Selector */
+.quick-multiplier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+.quick-pill-btn {
+    padding: 8px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary-black);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+.quick-pill-btn:active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* --------------------------------------------------------------------------
+   9. HARDWARE ACCELERATED ANIMATION SUITE
+   -------------------------------------------------------------------------- */
+@keyframes fluidSlideInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-16px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.animate-menu-reveal {
+    animation: fluidSlideInMenu 0.3s var(--ease-out-quint) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px rgba(255,255,255,0.2)); }
+    50% { opacity: 0.8; filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)); }
+}
+
+@keyframes infiniteTicker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-active-engine {
+    display: inline-flex;
+    animation: infiniteTicker 25s linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   10. SYSTEM NAVIGATION DOCK FOOTER
+   -------------------------------------------------------------------------- */
+.footer-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    z-index: 9000;
+    padding: 12px 16px 28px 16px;
+    background-color: rgba(11, 15, 23, 0.94);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: var(--text-secondary-black);
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+.footer-nav-btn:active {
+    transform: scale(0.85);
+}
+.footer-nav-btn.active-dock-item {
+    color: var(--brand-emerald);
+}
+
+.font-numeric-sync {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+}
+
