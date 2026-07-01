@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bet-Crash</title>
+    <!-- Tailwind CSS for utility-first responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for premium app icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #171d2b; /* Exact dark slate background from the screens */
+            -webkit-tap-highlight-color: transparent;
+        }
+        .game-card {
+            background: #212936; /* Dark background card color matching the images */
+        }
+        /* Custom hide scrollbar for sleek app feel */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-slate-200 font-sans min-h-screen pb-24 select-none">
+
+    <!-- Sticky Header Area -->
+    <header class="sticky top-0 z-50 bg-[#171d2b] border-b border-slate-800/60 px-4 py-3">
+        <div class="flex justify-between items-center max-w-md mx-auto">
+            <h1 class="text-xl font-extrabold tracking-tight text-emerald-500">
+                Bet-Crash
+            </h1>
+            <div class="text-sm font-bold text-slate-100 flex items-center gap-1">
+                0.00 KES
+            </div>
+        </div>
+
+        <!-- Authentication Header Buttons -->
+        <div class="grid grid-cols-2 gap-3 mt-3 max-w-md mx-auto">
+            <button class="bg-[#212936] hover:bg-slate-700/50 border border-slate-700/40 text-xs font-bold py-2.5 rounded-xl transition-all text-slate-200">
+                Sign Up
+            </button>
+            <button class="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-xs font-bold py-2.5 rounded-xl transition-all text-slate-950 font-black">
+                Login
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Game Catalog Grid -->
+    <main class="px-4 py-4 max-w-md mx-auto space-y-6">
+
+        <!-- Category: Crash Games -->
+        <section>
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Crash Games</h2>
+            <div class="grid grid-cols-2 gap-3">
+                
+                <!-- Aviator -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-emerald-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="absolute -right-2 -top-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-plane text-7xl text-emerald-400"></i>
+                    </div>
+                    <div class="text-emerald-500 text-lg font-black tracking-wider">AVIATOR</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Aviator</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Spribe</div>
+                    </div>
+                </div>
+
+                <!-- JetX -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-sky-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="absolute -right-2 -top-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-jet-fighter text-7xl text-sky-400"></i>
+                    </div>
+                    <div class="text-sky-400 text-lg font-black tracking-wider">JETX</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">JetX</div>
+                        <div class="text-[10px] text-slate-500 font-medium">SmartSoft</div>
+                    </div>
+                </div>
+
+                <!-- Rocketman -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-amber-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="absolute -right-2 -top-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-rocket text-7xl text-amber-500"></i>
+                    </div>
+                    <div class="text-amber-500 text-md font-black tracking-wider">ROCKETMAN</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Rocketman</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Elbet</div>
+                    </div>
+                </div>
+
+                <!-- Crash -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-rose-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="absolute -right-2 -top-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-chart-line text-7xl text-rose-500"></i>
+                    </div>
+                    <div class="text-rose-500 text-lg font-black tracking-wider">CRASH</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Crash</div>
+                        <div class="text-[10px] text-slate-500 font-medium">1Win</div>
+                    </div>
+                </div>
+
+                <!-- Flyin -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-slate-400/30 transition-all duration-200 cursor-pointer">
+                    <div class="absolute -right-2 -top-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-cloud-bolt text-7xl text-white"></i>
+                    </div>
+                    <div class="text-slate-100 text-lg font-black tracking-wider">FLYIN</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Flyin</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Betsoft</div>
+                    </div>
+                </div>
+
+                <!-- Spaceman -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-indigo-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="absolute -right-2 -top-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fa-solid fa-user-astronaut text-7xl text-indigo-400"></i>
+                    </div>
+                    <div class="text-slate-100 text-[15px] font-black tracking-wider">SPACEMAN</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Spaceman</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Pragmatic</div>
+                    </div>
+                </div>
+
+                <!-- Zoom -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-slate-400/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-lg font-black tracking-wider">ZOOM</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Zoom</div>
+                        <div class="text-[10px] text-slate-500 font-medium">OnlyPlay</div>
+                    </div>
+                </div>
+
+                <!-- LuckyJet -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-slate-400/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-base font-black tracking-wider">LUCKYJET</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Lucky Jet</div>
+                        <div class="text-[10px] text-slate-500 font-medium">1Win</div>
+                    </div>
+                </div>
+
+                <!-- Plinko -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-slate-400/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-lg font-black tracking-wider">PLINKO</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Plinko</div>
+                        <div class="text-[10px] text-slate-500 font-medium">BGaming</div>
+                    </div>
+                </div>
+
+                <!-- Mines -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-slate-400/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-lg font-black tracking-wider">MINES</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Mines</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Scribe</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Category: Casino Games -->
+        <section>
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Casino Games</h2>
+            <div class="grid grid-cols-2 gap-3">
+                
+                <!-- Roulette -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-red-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-lg font-black tracking-wider">ROULETTE</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Roulette</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Evolution</div>
+                    </div>
+                </div>
+
+                <!-- Blackjack -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-blue-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-base font-black tracking-wider">BLACKJACK</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Blackjack</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Evolution</div>
+                    </div>
+                </div>
+
+                <!-- Baccarat -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-slate-400/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-base font-black tracking-wider">BACCARAT</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Baccarat</div>
+                        <div class="text-[10px] text-slate-500 font-medium">Pragmatic</div>
+                    </div>
+                </div>
+
+                <!-- Slots -->
+                <div class="game-card group relative overflow-hidden rounded-2xl p-4 flex flex-col justify-between h-36 border border-transparent hover:border-yellow-500/30 transition-all duration-200 cursor-pointer">
+                    <div class="text-slate-100 text-lg font-black tracking-wider">SLOTS</div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-200">Mega Slots</div>
+                        <div class="text-[10px] text-slate-500 font-medium">NetEnt</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Native Bottom App Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#171d2b] border-t border-slate-800 px-6 py-2">
+        <div class="max-w-md mx-auto flex justify-between items-center text-slate-500">
+            <!-- Home Item (Active State) -->
+            <button class="flex flex-col items-center gap-1 text-emerald-400 font-bold">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span class="text-[10px]">Home</span>
+            </button>
+            
+            <!-- Casino Item -->
+            <button class="flex flex-col items-center gap-1 hover:text-slate-300 transition-colors">
+                <i class="fa-solid fa-dice text-lg"></i>
+                <span class="text-[10px]">Casino</span>
+            </button>
+            
+            <!-- Wallet Item -->
+            <button class="flex flex-col items-center gap-1 hover:text-slate-300 transition-colors">
+                <i class="fa-solid fa-wallet text-lg"></i>
+                <span class="text-[10px]">Wallet</span>
+            </button>
+            
+            <!-- Profile Item -->
+            <button class="flex flex-col items-center gap-1 hover:text-slate-300 transition-colors">
+                <i class="fa-solid fa-user text-lg"></i>
+                <span class="text-[10px]">Profile</span>
+            </button>
+        </div>
+    </nav>
+
+</body>
+</html>
