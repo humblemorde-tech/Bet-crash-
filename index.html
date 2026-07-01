@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bet-Crash Premium Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="app-body" class="theme-black text-slate-200 font-sans min-h-screen pb-28 select-none no-select-forced scroll-chain-kill">
+
+    <div class="viewport-mobile-optimized app-view-stack-root">
+        
+        <header class="sticky top-0 z-[2000] header-bg border-b border-slate-800/60 px-4 py-3.5">
+            <div class="flex justify-between items-center max-w-md mx-auto relative">
+                
+                <div class="flex items-center gap-2" onclick="switchTab('home')">
+                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
+                    <span class="text-xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 cursor-pointer">
+                        BET-CRASH
+                    </span>
+                    <span class="text-[9px] tracking-widest text-slate-400 font-black bg-slate-800 px-1.5 py-0.5 rounded">v4.2</span>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <div class="text-xs font-black text-slate-100 bg-slate-900/80 px-2.5 py-1.5 rounded-xl border border-slate-800/80 flex items-center gap-1 font-numeric-sync">
+                        <span id="user-balance">0.00</span> <span class="text-[10px] text-emerald-400 font-extrabold">KES</span>
+                    </div>
+
+                    <button onclick="toggleTopMenu()" class="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700/40 flex items-center justify-center text-slate-200 hover:text-emerald-400 transition-colors">
+                        <i class="fa-solid fa-bars text-base"></i>
+                    </button>
+                </div>
+
+                <div id="top-dropdown-menu" class="hidden absolute top-12 right-0 w-64 bg-[#1b2436] border border-slate-800 rounded-2xl shadow-2xl p-4 space-y-3 z-[3000] animate-fade-in">
+                    
+                    <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+                        <div class="text-[10px] uppercase font-bold text-slate-500">Active Profile</div>
+                        <div id="menu-user-identifier" class="text-xs font-black text-slate-300 tracking-wide truncate">Guest Session</div>
+                    </div>
+
+                    <div class="divide-y divide-slate-800 text-xs">
+                        <div onclick="openMenuAction('deposit')" class="menu-item py-3 flex justify-between items-center cursor-pointer hover:text-emerald-400 text-slate-300">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-money-bill-transfer text-emerald-400 w-4"></i> Cash Deposit (KES 50 - 40K)</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
+                        </div>
+                        <div onclick="openMenuAction('withdraw')" class="menu-item py-3 flex justify-between items-center cursor-pointer hover:text-rose-400 text-slate-300">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-building-columns text-rose-400 w-4"></i> Secure Cashout (KES 100 - 300K)</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-600"></i>
+                        </div>
+                        <div onclick="openMenuAction('invite')" class="menu-item py-3 flex flex-col gap-0.5 cursor-pointer text-slate-300">
+                            <div class="flex justify-between items-center w-full">
+                                <span class="flex items-center gap-2.5 font-bold text-amber-400"><i class="fa-solid fa-user-group w-4"></i> Invite Friend Link</span>
+                                <span class="bg-amber-500/20 text-amber-400 text-[8px] font-black uppercase px-1.5 py-0.5 rounded">Promo</span>
+                            </div>
+                            <span class="text-[9px] text-slate-500 pl-6">Get 200% Match Welcome Bonus credit instantly</span>
+                        </div>
+                        <div onclick="openMenuAction('freebet')" class="menu-item py-3 flex justify-between items-center cursor-pointer text-slate-400">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-gift text-slate-500 w-4"></i> Claim Free Bets Token</span>
+                            <span class="text-[10px] text-slate-500 font-bold">None Available</span>
+                        </div>
+                        <div class="py-3 flex justify-between items-center text-slate-300">
+                            <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-half-stroke text-sky-400 w-4"></i> App Appearance</span>
+                            <div class="flex gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800">
+                                <button onclick="setTheme('black')" class="text-[9px] font-black px-2 py-1 rounded bg-slate-800 text-slate-200">Black</button>
+                                <button onclick="setTheme('white')" class="text-[9px] font-black px-2 py-1 rounded text-slate-400 hover:text-slate-200">White</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="menu-auth-actions" class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+                        <button onclick="openAuthModal('signup')" class="bg-slate-900 border border-slate-800 text-[10px] font-black py-2 rounded-xl text-slate-300 uppercase">Register</button>
+                        <button onclick="openAuthModal('login')" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 text-[10px] font-black py-2 rounded-xl uppercase">Login</button>
+                    </div>
+                    <button id="menu-logout-btn" onclick="logout()" class="hidden w-full bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 text-[10px] font-black py-2.5 rounded-xl uppercase tracking-wider transition-all">
+                        <i class="fa-solid fa-power-off mr-1.5"></i>Sign Out Session
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="auth-zone" class="grid grid-cols-2 gap-3 mt-3.5 max-w-md mx-auto">
+                <button onclick="openAuthModal('signup')" class="bg-[#212936] border border-slate-700/40 text-xs font-black py-2.5 rounded-xl text-slate-200 tracking-wider uppercase">
+                    <i class="fa-solid fa-user-plus mr-1.5 text-slate-400"></i>Create Account
+                </button>
+                <button onclick="openAuthModal('login')" class="bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-black text-xs py-2.5 rounded-xl tracking-wider uppercase shadow-lg shadow-cyan-500/10">
+                    <i class="fa-solid fa-right-to-bracket mr-1.5"></i>Secure Login
+                </button>
+            </div>
+        </header>
+
+        <div class="promo-banner-marquee">
+            <div class="marquee-content-wrapper font-numeric-sync">
+                <div class="marquee-promo-item"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> <b>AVIATOR:</b> Player @071*** cashed out <span class="text-emerald-400 font-bold">18.4x</span></div>
+                <div class="marquee-promo-item"><i class="fa-solid fa-circle text-[6px] text-sky-400"></i> <b>JETX:</b> Multiplier hit <span class="text-sky-400 font-bold">44.2x</span></div>
+                <div class="marquee-promo-item"><i class="fa-solid fa-circle text-[6px] text-amber-400"></i> <b>PROMO:</b> Invite a friend to claim your 200% welcome match voucher!</div>
+                <div class="marquee-promo-item"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> <b>AVIATOR:</b> Player @071*** cashed out <span class="text-emerald-400 font-bold">18.4x</span></div>
+            </div>
+        </div>
+
+        <div id="auth-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[4000] hidden flex items-center justify-center p-4">
+            <div class="bg-[#212936] border border-slate-800 w-full max-w-sm rounded-2xl p-6 relative">
+                <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <h3 id="modal-title" class="text-base font-black text-slate-100 tracking-tight mb-4">Verification Entry</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="form-input-label">Mobile Number (Safaricom)</label>
+                        <input type="text" id="auth-username" placeholder="e.g. 2547XXXXXXXX" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-emerald-500 font-numeric-sync">
+                    </div>
+                    <div>
+                        <label class="form-input-label">Security PIN Code</label>
+                        <input type="password" id="auth-password" placeholder="Enter Account PIN" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-emerald-500 font-numeric-sync">
+                    </div>
+                    <button onclick="handleAuthSubmit()" id="modal-submit-btn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black py-3 rounded-xl text-xs uppercase tracking-wider mt-2"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="wallet-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[4000] hidden flex items-center justify-center p-4">
+            <div class="bg-[#1b2436] border border-slate-800 w-full max-w-sm rounded-2xl p-5 relative space-y-4">
+                <button onclick="closeWalletModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <h3 id="wallet-modal-title" class="text-base font-black text-slate-100 uppercase tracking-wider">M-Pesa Wire Terminal</h3>
+                
+                <div class="space-y-3">
+                    <div>
+                        <label class="form-input-label">Transaction Value (KES)</label>
+                        <div class="input-currency-wrapper">
+                            <span class="input-currency-prefix">KES</span>
+                            <input type="number" id="wallet-amount" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-100 focus:outline-none font-numeric-sync">
+                        </div>
+                        <p id="wallet-limits-lbl" class="text-[9px] text-slate-500 mt-1 font-bold"></p>
+                    </div>
+                    <div>
+                        <label class="form-input-label">Safaricom Phone Target</label>
+                        <input type="text" id="wallet-phone" placeholder="2547XXXXXXXX" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-100 focus:outline-none font-numeric-sync">
+                    </div>
+                    <button id="wallet-submit-btn" onclick="executeWalletTransaction()" class="w-full text-slate-950 font-black py-3 rounded-xl text-xs uppercase tracking-wider"></button>
+                </div>
+            </div>
+        </div>
+
+        <main class="px-4 py-4 max-w-md mx-auto flex-grow app-touch-scroller">
+            
+            <div id="view-home" class="page-view space-y-5">
+                <div onclick="launchGame('aviator')" class="game-card card-theme-aviator rounded-2xl p-5 flex flex-col justify-between h-44 border border-transparent cursor-pointer group shadow-xl">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-red-600 text-white text-[8px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-md animate-pulse">Hot Module</span>
+                            <h2 class="text-2xl font-black text-slate-100 tracking-tighter mt-1">AVIATOR CLASSIC</h2>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Official Provider: <span class="text-red-400">Spribe</span></p>
+                        </div>
+                        <span class="bg-slate-950/80 text-emerald-400 text-[10px] font-black px-2 py-1 rounded-lg font-numeric-sync border border-slate-800">
+                            <i class="fa-solid fa-users mr-1"></i>14.8K Live
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-800/60">
+                        <span class="text-xs text-slate-300 font-medium">Launch Global Server Multiplier Graph</span>
+                        <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white text-xs group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play ml-0.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div onclick="launchGame('jetx')" class="game-card card-theme-jetx rounded-xl p-3.5 flex flex-col justify-between h-28 border border-transparent cursor-pointer">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-sky-400 tracking-tight">JETX</span>
+                            <span class="text-[9px] text-slate-500 font-bold font-numeric-sync">8.4K</span>
+                        </div>
+                        <div>
+                            <div class="text-[11px] font-bold text-slate-200 truncate">JetX Space Track</div>
+                            <div class="text-[8px] text-slate-500 uppercase tracking-wider font-bold">SmartSoft</div>
+                        </div>
+                    </div>
+                    <div onclick="launchGame('spaceman')" class="game-card rounded-xl p-3.5 flex flex-col justify-between h-28 border border-transparent border-bottom-3 border-purple-500 bg-gradient-to-br from-purple-950/40 to-slate-900 cursor-pointer">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-purple-400 tracking-tight">SPACEMAN</span>
+                            <span class="text-[9px] text-slate-500 font-bold font-numeric-sync">11.2K</span>
+                        </div>
+                        <div>
+                            <div class="text-[11px] font-bold text-slate-200 truncate">Spaceman Cosmic</div>
+                            <div class="text-[8px] text-slate-500 uppercase tracking-wider font-bold">Pragmatic</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="text-[10px] font-black text-slate-500 uppercase tracking-widest px-0.5">Explore Complete Catalog Array</h3>
+                    <div id="all-games-mix-container" class="grid grid-cols-2 gap-3">
+                        </div>
+                </div>
+            </div>
+
+            <div id="view-crash" class="page-view hidden space-y-4">
+                <div class="bg-slate-900/40 border border-slate-800/80 p-3 rounded-xl text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>Active Module Matrix: <b class="text-emerald-400 font-bold">Crash Sync</b></span>
+                    <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i>
+                </div>
+                <div id="crash-only-container" class="grid grid-cols-2 gap-3">
+                    </div>
+            </div>
+
+            <div id="view-casino" class="page-view hidden space-y-4">
+                <div class="bg-slate-900/40 border border-slate-800/80 p-3 rounded-xl text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>Active Floor Matrix: <b class="text-purple-400 font-bold">Live Streams</b></span>
+                    <i class="fa-solid fa-dice text-purple-400"></i>
+                </div>
+                <div id="casino-only-container" class="grid grid-cols-2 gap-3">
+                    </div>
+            </div>
+
+        </main>
+
+        <nav class="fixed bottom-0 left-0 right-0 z-[2000] footer-nav-bar px-4 py-3">
+            <div class="max-w-md mx-auto grid grid-cols-3 justify-items-center text-slate-500">
+                <button id="nav-home" onclick="switchTab('home')" class="flex flex-col items-center gap-1 text-emerald-400 font-black">
+                    <i class="fa-solid fa-house text-xl"></i>
+                    <span class="text-[10px] uppercase tracking-wider font-bold">Home</span>
+                </button>
+                
+                <button id="nav-crash" onclick="switchTab('crash')" class="flex flex-col items-center gap-1 hover:text-slate-300 transition-colors">
+                    <i class="fa-solid fa-chart-line text-xl"></i>
+                    <span class="text-[10px] uppercase tracking-wider font-bold">Crash</span>
+                </button>
+                
+                <button id="nav-casino" onclick="switchTab('casino')" class="flex flex-col items-center gap-1 hover:text-slate-300 transition-colors">
+                    <i class="fa-solid fa-dice text-xl"></i>
+                    <span class="text-[10px] uppercase tracking-wider font-bold">Casino</span>
+                </button>
+            </div>
+            <div class="footer-blur-backer"></div>
+        </nav>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                  </html>
+
