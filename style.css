@@ -445,4 +445,1089 @@ input[type=number] {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 3)
+   ========================================================================== */
+
+/* --- 21. CRASH MULTIPLIER BADGES & HISTORY LINES --- */
+.multiplier-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    transition: var(--transition-smooth);
+}
+
+.mult-low {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--color-sky);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.mult-medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-amber);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.mult-high {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-emerald);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* --- 22. LIVE CHAT & SOCIAL BETTING STREAM PANELS --- */
+.bet-feed-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 0.75rem;
+    background: rgba(15, 20, 29, 0.4);
+    border-radius: 0.75rem;
+    margin-bottom: 0.375rem;
+    border-left: 2px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.bet-feed-row.win-alert {
+    border-left-color: var(--color-emerald);
+    background: rgba(16, 185, 129, 0.04);
+}
+
+/* --- 23. MANUAL & AUTO BETTING TOGGLE SWITCH COMPONENT --- */
+.bet-toggle-container {
+    background: var(--color-dark-surface);
+    padding: 0.25rem;
+    border-radius: 0.75rem;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.bet-toggle-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.bet-toggle-tab.active {
+    background: var(--bg-card-hover);
+    color: #ffffff;
+}
+
+/* --- 24. ADVANCED TYPOGRAPHY GLOWS FOR CRASH MULTIPLIERS --- */
+.crash-number-live {
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-family: monospace, sans-serif;
+    letter-spacing: -0.05em;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+                 0 0 40px rgba(16, 185, 129, 0.2);
+}
+
+/* --- 25. GAMEPLAY LOADER & COUNTDOWN RING UTILITIES --- */
+@keyframes radialProgressBar {
+    from { stroke-dashoffset: 283; }
+    to { stroke-dashoffset: 0; }
+}
+
+.countdown-svg-circle {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    animation: radialProgressBar 5s linear infinite;
+}
+
+/* --- 26. QUICK VALUE SELECTION UTILITY BUTTONS (MIN, MAX, 2X, /2) --- */
+.quick-bet-btn {
+    background: #2e3748;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+}
+
+.quick-bet-btn:active {
+    background: var(--color-emerald);
+    color: var(--color-dark-surface);
+}
+
+/* --- 27. M-PESA REAL-TIME TRANSACTION POPUP DECORATION --- */
+.mpesa-status-toast {
+    position: fixed;
+    bottom: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: sm;
+    background: #212936;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-xl);
+    padding: 1rem;
+    z-index: 100;
+    animation: toastNotificationSlide 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* --- 28. RESPONSIBLE GAMING ALERT STICKERS --- */
+.gaming-alert-card {
+    background: rgba(244, 63, 94, 0.05);
+    border: 1px dashed rgba(244, 63, 94, 0.2);
+    border-radius: var(--radius-xl);
+    padding: 1rem;
+    position: relative;
+}
+
+/* --- 29. SYSTEM PERFORMANCE OVERRIDES --- */
+.hardware-accel {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+       }
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 4)
+   ========================================================================== */
+
+/* --- 30. LIVE REAL-TIME WAGERING TABLES --- */
+.bet-table-wrapper {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+
+.bet-table-hdr {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0.75rem;
+}
+
+.bet-table-row {
+    background: rgba(33, 41, 54, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: var(--transition-smooth);
+}
+
+.bet-table-row:hover {
+    background: rgba(33, 41, 54, 0.7);
+}
+
+.bet-table-cell {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.bet-table-cell:first-child {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+}
+
+.bet-table-cell:last-child {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+}
+
+/* --- 31. INTENSE PULSING RADAR GLOWS FOR CRASH ENGINE --- */
+.radar-signal-glow {
+    position: relative;
+}
+
+.radar-signal-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-emerald);
+    opacity: 0.15;
+    animation: stkGlowPulse 2s cubic-bezier(0.25, 0, 0, 1) infinite;
+    pointer-events: none;
+}
+
+/* --- 32. COMPACT RECENT GAME HISTORY SCROLL-LINE --- */
+.trend-history-ribbon {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.25rem 0;
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* --- 33. SYSTEM POPUP & TRANSACTIONAL WARNING BANNER STYLING --- */
+.warning-banner-container {
+    background: linear-gradient(90deg, rgba(244, 63, 94, 0.1), rgba(245, 158, 11, 0.05));
+    border-left: 4px solid var(--color-rose);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+/* --- 34. INTERACTIVE BET-SLIP INPUT CONTROLS --- */
+.betslip-pre-value-chip {
+    background: #1e2530;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.betslip-pre-value-chip:active {
+    background: var(--color-teal);
+    color: #000000;
+}
+
+/* --- 35. PROMO CODE BONUS BADGE DESIGNS --- */
+.promo-badge-container {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(251, 191, 36, 0.05));
+    border: 1px dashed var(--color-amber);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem;
+    position: relative;
+}
+
+/* --- 36. FINISHED DEPLOYMENT STABILITY CONTROLS --- */
+.app-touch-sc
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 5)
+   ========================================================================== */
+
+/* --- 37. LIVE MULTIPLIER CRASH CHART CANVAS WRAPPER --- */
+.crash-chart-viewport {
+    position: relative;
+    width: 100%;
+    height: 14rem;
+    background: radial-gradient(circle at bottom left, #1e2736, var(--color-dark-surface));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+}
+
+.crash-vector-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: bottom left;
+}
+
+/* --- 38. LIVE CHAT ENGINE BUBBLES --- */
+.chat-stream-box {
+    height: 12rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 0.25rem;
+}
+
+.chat-bubble-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    max-width: 85%;
+}
+
+.chat-bubble-item.system-announcement {
+    background: rgba(20, 184, 166, 0.05);
+    border-color: rgba(20, 184, 166, 0.15);
+    max-width: 100%;
+    text-align: center;
+}
+
+/* --- 39. PROGRESSIVE JACKPOT COUNTER TILES --- */
+.jackpot-counter-banner {
+    background: linear-gradient(135deg, #311042, #150824);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: var(--radius-xl);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.jackpot-ticker-digits {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    color: #fbbf24;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+
+/* --- 40. TRANSACTION HISTORY STATUS PILLS --- */
+.tx-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tx-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-emerald);
+}
+
+.tx-pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-amber);
+}
+
+.tx-failed {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--color-rose);
+}
+
+/* --- 41. ACCOUNT LIMIT SELECTION FIELDS --- */
+.limit-tier-card {
+    background: rgba(15, 20, 29, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.limit-tier-card.selected-tier {
+    border-color: var(--color-rose);
+    background: rgba(244, 63, 94, 0.03);
+}
+
+/* --- 42. STATIC RENDERING GLITCH FIXES --- */
+img {
+    max-width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+.app-viewport-shield {
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+   }
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 6)
+   ========================================================================== */
+
+/* --- 43. DETAILED LIVE GAMES TRACKER BADGES --- */
+.game-active-players {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-emerald);
+    background: rgba(16, 185, 129, 0.08);
+    padding: 0.15rem 0.45rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.game-hot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--color-amber);
+    background: rgba(245, 158, 11, 0.08);
+    padding: 0.15rem 0.45rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    text-transform: uppercase;
+}
+
+/* --- 44. HIGH-END CASINO CARD HOVER INTERACTION SHADERS --- */
+.card-theme-aviator:hover .game-active-players {
+    background: var(--color-emerald);
+    color: var(--color-dark-surface);
+}
+
+.card-theme-jetx:hover .game-active-players {
+    background: var(--color-sky);
+    color: var(--color-dark-surface);
+}
+
+/* --- 45. BONUS WALLET SUB-BALANCES LAYOUTS --- */
+.bonus-wallet-container {
+    background: linear-gradient(135deg, rgba(33, 41, 54, 0.9), rgba(15, 20, 29, 0.9));
+    border-radius: var(--radius-xl);
+    padding: 1rem;
+    border: 1px dashed rgba(251, 191, 36, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bonus-balance-amount {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--color-amber);
+}
+
+/* --- 46. MODAL INTERACTIVE CONFIRMATION SYSTEM PIPELINES --- */
+.modal-action-btn-group {
+    display: flex;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.modal-btn-dismiss {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    font-weight: 700;
+    padding: 0.65rem;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.modal-btn-dismiss:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- 47. ACCOUNT BANNER STATS BOXES MATRIX --- */
+.profile-stats-grid {
+    display: grid;
+    grid-cols: 3;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.stat-metric-card {
+    background: rgba(15, 20, 29, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.stat-metric-val {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.stat-metric-lbl {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* --- 48. TRANSLUCENT NAVIGATION SHIELD WRAPPERS --- */
+.navigation-blur-backing {
+    position: absolute;
+    inset: 0;
+    background: rgba(23, 29, 43, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: -1;
+}
+
+/* --- 49. ANTI-ALIASED TEXT SCALE BALANCING --- */
+.font-numeric-sync {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+   }
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 7)
+   ========================================================================== */
+
+/* --- 50. GAMING HISTORY MULTIPLIER DOTS AND CHIPS --- */
+.trend-history-ribbon::-webkit-scrollbar {
+    display: none !important;
+}
+
+.history-multiplier-node {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    transition: var(--transition-smooth);
+}
+
+.node-crash-low {
+    background: rgba(244, 63, 94, 0.12);
+    color: #f43f5e;
+    border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+.node-crash-med {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.node-crash-high {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* --- 51. DEPOSIT AND PULL WALLET METHOD BADGES --- */
+.payment-provider-badge {
+    background: #1c232e;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-xl);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.payment-provider-badge.active-provider {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.mpesa-logo-accent {
+    color: #49c512;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -0.05em;
+}
+
+/* --- 52. DYNAMIC INPUT PREFIX FLOATING UTILITIES --- */
+.input-currency-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-currency-prefix {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.input-currency-wrapper input {
+    padding-left: 3rem !important;
+}
+
+/* --- 53. RESPONSIBLE GAMING SELF-EXCLUSION METRIC TIMERS --- */
+.exclusion-duration-selector {
+    display: grid;
+    grid-template-cols: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.exclusion-time-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.exclusion-time-pill.active-pill {
+    background: rgba(244, 63, 94, 0.1);
+    border-color: var(--color-rose);
+    color: #ffffff;
+}
+
+/* --- 54. SUB-BAR NOTIFICATION CHIPS ENGINE --- */
+.app-status-bar-notif {
+    position: fixed;
+    top: 4.5rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    background: rgba(33, 41, 54, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 2rem;
+    padding: 0.35rem 1rem;
+    z-index: 40;
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.app-status-bar-notif.show-notif {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+/* --- 55. ANTI-ALIASING SCALE AND LAYER CONTROL FOR STABILITY --- */
+.layer-topmost {
+    z-index: 1000 !important;
+}
+
+.force-smooth-rendering {
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+       }
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 8)
+   ========================================================================== */
+
+/* --- 56. MULTI-BET SLIP AND ODDS BOOST WRAPPERS --- */
+.odds-boost-container {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.05));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-xl);
+    padding: 0.875rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.odds-multiplier-pill {
+    background: var(--color-emerald);
+    color: var(--color-dark-surface);
+    font-size: 0.8rem;
+    font-weight: 900;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* --- 57. LIVE LEADERBOARD COMPONENT INTERACTION LAUNCHERS --- */
+.leaderboard-rank-badge {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+.rank-gold {
+    background: #fbbf24;
+    color: #150824;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+}
+
+.rank-silver {
+    background: #e2e8f0;
+    color: #0f141d;
+}
+
+.rank-bronze {
+    background: #b45309;
+    color: #ffffff;
+}
+
+/* --- 58. CASH-OUT INTERACTIVE FLASH LAYER EFFECTS --- */
+@keyframes flashGreenOut {
+    0% { background: rgba(16, 185, 129, 0.3); }
+    100% { background: transparent; }
+}
+
+.action-success-flash {
+    animation: flashGreenOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+/* --- 59. RISK ASSESSMENT CONTROL INTERFACES --- */
+.risk-meter-track {
+    width: 100%;
+    height: 6px;
+    background: #1c232e;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.risk-meter-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.risk-low { background: var(--color-sky); width: 33.3%; }
+.risk-med { background: var(--color-amber); width: 66.6%; }
+.risk-high { background: var(--color-rose); width: 100%; }
+
+/* --- 60. TRANSLUCENT SKELETON LOADERS FOR NETWORKS --- */
+@keyframes skeletalPulseWave {
+    0% { opacity: 0.05; }
+    50% { opacity: 0.15; }
+    100% { opacity: 0.05; }
+}
+
+.skeleton-loading-node {
+    background: #ffffff;
+    animation: skeletalPulseWave 1.5s ease-in-out infinite;
+    border-radius: 0.5rem;
+    pointer-events: none;
+}
+
+/* --- 61. RESPONSIBLE GAMING EXCLUSION OVERLAY LAYER CORES --- */
+.global-ban-overlay-lock {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 20, 29, 0.98);
+    backdrop-filter: blur(25px);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* --- 62. APP-WIDE GRAPHICAL SANITY OVERRIDES --- */
+.clean-hardware-compositing {
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+}
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 9)
+   ========================================================================== */
+
+/* --- 63. DEEP PROMOTIONAL CAMPAIGN CARDS & BONUS MATRIX --- */
+.promo-banner-marquee {
+    background: linear-gradient(90deg, #1d2636, #2d384e, #1d2636);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    padding: 0.5rem 0;
+    display: flex;
+}
+
+@keyframes marqueeScrolling {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-content-wrapper {
+    display: flex;
+    gap: 2rem;
+    white-space: nowrap;
+    animation: marqueeScrolling 25s linear infinite;
+}
+
+.marquee-promo-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* --- 64. AFFILIATE & REWARD SYSTEMS STYLING HOOKS --- */
+.referral-link-container {
+    background: var(--color-dark-surface);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.referral-link-text {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--color-sky);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reward-milestone-track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.reward-milestone-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #1c232e;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.reward-milestone-node {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: #1c232e;
+    border: 2px solid var(--bg-card);
+    z-index: 2;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.reward-milestone-node.achieved {
+    background: var(--color-emerald);
+    box-shadow: 0 0 10px var(--color-emerald);
+}
+
+/* --- 65. VIP LEVEL IDENTITY CARD PACKS --- */
+.vip-tier-card-gold {
+    background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem;
+    color: #150824;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(179, 135, 40, 0.15);
+}
+
+.vip-tier-card-platinum {
+    background: linear-gradient(135deg, #2c3e50, #bdc3c7, #2c3e50);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(189, 195, 199, 0.15);
+}
+
+.vip-card-watermark {
+    position: absolute;
+    right: -1.5rem;
+    bottom: -1.5rem;
+    font-size: 8rem;
+    font-weight: 900;
+    opacity: 0.08;
+    transform: rotate(-15deg);
+}
+
+/* --- 66. IN-GAME GRAPHICAL HUD & LIVE STATISTICS --- */
+.game-hud-stat-container {
+    background: rgba(15, 20, 29, 0.6);
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-hud-stat-label {
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.game-hud-stat-value {
+    font-size: 0.875rem;
+    font-weight: 800;
+    font-family: tabular-nums, monospace;
+}
+
+/* --- 67. CUSTOM TOAST NOTIFICATION STYLING --- */
+.toast-alert-popup {
+    background: var(--bg-card);
+    border-left: 4px solid var(--color-teal);
+    border-radius: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* --- 68. APP OVERLAY DEPTH INDEX RECONCILIATIONS --- */
+.z-layer-navigation { z-index: 50; }
+.z-layer-sticky-bar { z-index: 40; }
+.z-layer-modal-window { z-index: 100; }
+.z-layer-toast-alert { z-index: 200; }
+
+/* --- 69. EXTREME RENDERING STABILITY WRAPPERS --- */
+.viewport-mobile-optimized {
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.scroll-chain-kill {
+    overscroll-behavior-y: contain;
+}
+/* ==========================================================================
+   EXTENDED UI LAYOUT & SYSTEM SPECIFICATIONS (PART 10)
+   ========================================================================== */
+
+/* --- 70. SOUND AND AUDIO HUD EFFECTS CONTROLS --- */
+.audio-toggle-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.audio-icon-active {
+    color: var(--color-teal);
+    text-shadow: 0 0 8px rgba(20, 184, 166, 0.4);
+}
+
+/* --- 71. CRASH JET FLAME TRAIL PARTICLES --- */
+@keyframes jetThrustFlame {
+    0% { transform: scaleY(1) translateY(0); opacity: 0.9; filter: hue-rotate(0deg); }
+    50% { transform: scaleY(1.3) translateY(1px); opacity: 1; filter: hue-rotate(15deg); }
+    100% { transform: scaleY(1) translateY(0); opacity: 0.9; filter: hue-rotate(0deg); }
+}
+
+.jet-exhaust-particle {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 20px;
+    background: linear-gradient(to top, transparent, var(--color-rose), #f97316, #facc15);
+    transform-origin: top center;
+    animation: jetThrustFlame 0.15s linear infinite;
+    blur: 1px;
+}
+
+/* --- 72. LIVE MULTI-ROOM TOURNAMENT FEED COMPONENT --- */
+.tournament-podium-card {
+    background: radial-gradient(circle at top, rgba(251, 191, 36, 0.08), var(--bg-card));
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    border-radius: var(--radius-2xl);
+    padding: 1.25rem;
+    position: relative;
+}
+
+.tournament-timer-countdown {
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-family: monospace;
+    background: linear-gradient(to right, #facc15, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- 73. TRANSACTION SEARCH FILTERS ENGINE LAYOUTS --- */
+.search-filter-ribbon {
+    display: flex;
+    gap: 0.375rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+}
+
+.filter-chip-pill {
+    flex-shrink: 0;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    transition: var(--transition-smooth);
+}
+
+.filter-chip-pill.selected {
+    background: var(--bg-card-hover);
+    border-color: var(--color-sky);
+    color: #ffffff;
+}
+
+/* --- 74. RESPONSIBLE GAMING SELF-ASSESSMENT GRID METRICS --- */
+.self-test-metric-row {
+    background: #1c232e;
+    border-radius: var(--radius-xl);
+    padding: 1rem;
+    border-left: 3px solid var(--color-amber);
+}
+
+.self-test-checkbox-hitbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.375rem;
+    border: 2px solid var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.self-test-checkbox-hitbox.checked {
+    background: var(--color-rose);
+    border-color: var(--color-rose);
+    color: #ffffff;
+}
+
+/* --- 75. NATIVE APP VIEW STACK BUFFER FIXES --- */
+.app-view-stack-root {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.force-pixel-snapping {
+    image-rendering: pixelated;
+    transform: translate3d(0,0,0);
+   }
+   
+
+
+   
+                     
 
