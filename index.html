@@ -32,6 +32,12 @@ header{position:fixed;top:0;left:0;width:100%;background:rgba(10,15,26,.95);back
 .bet-ticker{overflow:hidden;white-space:nowrap;background:#0d1320;padding:14px 0;border:2px solid #00ff95;margin-top:30px;}
 .bet-track{display:inline-block;padding-left:100%;animation:ticker 25s linear infinite;color:#00ff88;font-weight:800;}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+.multiplier-box{text-align:center;margin:20px 0 30px;}
+.multiplier{font-size:80px;font-weight:900;background:linear-gradient(90deg,#00ff88,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:pulse 1s infinite;filter:drop-shadow(0 0 20px #00ff88);}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.start-btn{padding:18px 45px;border:none;border-radius:50px;background:#00ff95;color:#000;font-weight:900;font-size:20px;cursor:pointer;margin:15px auto;display:block;transition:.3s;}
+.start-btn:disabled{opacity:.5;cursor:not-allowed;}
+#crashText{text-align:center;font-size:18px;margin-top:10px;color:#ff5555;min-height:25px;font-weight:700;}
 </style>
 </head>
 <body>
