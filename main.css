@@ -1,0 +1,28 @@
+/* Unfreeze structural layout and activate deep mobile scrolling physics */
+body {
+    background-color: #0b0f17;
+    color: #f8fafc;
+    font-family: system-ui, -apple-system, sans-serif;
+    /* Crucial Fixes: Enable natural scrolling down the page */
+    overflow-y: auto !important;
+    min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
+}
+
+.viewport-mobile-optimized {
+    max-width: 520px; /* Expanded slightly to give wider spacing */
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #0b0f17;
+}
+
+/* The primary scroll zone */
+.app-touch-scroller {
+    width: 100%;
+    height: auto;
+    overflow-y: visible !important; /* Forces elements to spill downwards naturally */
+    padding-bottom: 140px; /* Massive breathing space so the footer bar never clips games */
+}
