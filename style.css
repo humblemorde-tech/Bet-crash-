@@ -1,0 +1,186 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* Navbar */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 8%;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00ff99;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00ff99;
+}
+
+/* Hero */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(135deg,#111827,#0d1117,#003b2f);
+}
+
+.hero h1{
+    font-size:60px;
+    color:#00ff99;
+    animation:glow 2s infinite alternate;
+}
+
+.hero p{
+    font-size:20px;
+    margin:20px;
+    color:#ccc;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#00ff99;
+    color:#111;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #00ff99;
+}
+
+/* Cards */
+.games{
+    padding:100px 8%;
+}
+
+.games h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#00ff99;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#161b22;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+    border:1px solid rgba(0,255,153,.2);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(0,255,153,.4);
+}
+
+.card h3{
+    color:#00ff99;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#aaa;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:#111;
+    color:#777;
+}
+
+/* Glow Animation */
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #00ff99;
+    }
+    to{
+        text-shadow:0 0 30px #00ff99,
+                    0 0 60px #00ff99;
+    }
+}
+
+/* Floating Background */
+body::before{
+    content:"";
+    position:fixed;
+    width:250%;
+    height:250%;
+    background:
+        radial-gradient(circle,#00ff9940 1px,transparent 1px);
+    background-size:40px 40px;
+    animation:moveBg 30s linear infinite;
+    z-index:-1;
+}
+
+@keyframes moveBg{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-300px,-300px);
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.hero h1{
+    font-size:40px;
+}
+
+nav{
+    display:none;
+}
+
+header{
+    padding:15px 20px;
+}
+
+.btn{
+    padding:12px 25px;
+}
+
+}
